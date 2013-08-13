@@ -58,6 +58,7 @@ int StopWait(void)
 
 void SysBeep(short duration)
 {
+	BP_NOT_USED(duration);
 	// FIXME: should replace printf with a messaging API
 	printf("\007Beep!\n");
 }

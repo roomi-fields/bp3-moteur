@@ -94,7 +94,11 @@ int MakeSound(long *p_kmax,unsigned long imaxstreak,int maxnsequences,
 	// BPPrintMessage(1,odInfo, "\nRunning MakeSound() (Tcurr * Time_res) = %ld, tmin = %ld ms, tmax = %ld ms\n",(long) Tcurr * Time_res,tmin,tmax);
 
 	if(Panic || CheckEmergency() != OK) return(ABORT);
-	if(SoundOn) return(OK); 
+	if(SoundOn) return(OK);
+	if(NoTracePath) {
+		ShowObjectGraph = ShowPianoRoll = ShowGraphic = FALSE;
+		BPPrintMessage(0,odInfo,"👉 No graphic due to the absence of a specified trace path\n");
+		}
 
 	if(CompileRegressions() != OK) return(ABORT);
 
@@ -116,6 +120,14 @@ int MakeSound(long *p_kmax,unsigned long imaxstreak,int maxnsequences,
 		BPPrintMessage(0,odInfo, "=> Cancelling MakeSound()\n");
 		return(OK);
 		}
+	if(WriteMIDIfile || OutCsound) {
+		ItemNumber++;
+	//	BPPrintMessage(1,odInfo,"👉 %ld !!!\n",(long)ItemNumber);
+		if((MaxItemsProduce > 0) && ItemNumber > MaxItemsProduce) {
+			if(ItemNumber == (MaxItemsProduce + 1L)) BPPrintMessage(1,odInfo,"👉 %ld items have been produced\n",(long)(ItemNumber - 1L));
+			return(OK);
+			}
+		}
 	interruptedonce = overflow = FALSE;
 	rs = 0;
 	resetok = TRUE;
@@ -123,7 +135,6 @@ int MakeSound(long *p_kmax,unsigned long imaxstreak,int maxnsequences,
 
 	if(MIDIfileOn) {
 		BPPrintMessage(0,odInfo,"👉 a MIDI file will be created\n");
-		ItemNumber++;
 		}
 
 	Ke = log((double) SpeedRange) / 64.;
@@ -433,7 +444,7 @@ int MakeSound(long *p_kmax,unsigned long imaxstreak,int maxnsequences,
 			BPPrintMessage(0,odInfo,"\nImage width %d was too large: it has been cropped to 32000\n",WidthMax);
 			WidthMax = endxmax = 32000;
 			}
-		endxmax = (WidthMax - 40) / 2;  // Added 2024-11-02
+		endxmax = (WidthMax - 40) / 2;
 		graphrect.top = graphrect.left = 0;
 		graphrect.bottom = graphrect.top + endymax;
 		graphrect.right = graphrect.left + endxmax;
@@ -817,6 +828,7 @@ int MakeSound(long *p_kmax,unsigned long imaxstreak,int maxnsequences,
 			t3 = (*p_Instance)[kcurrentinstance].endtime;
 			objectstarttime = (*p_Instance)[kcurrentinstance].starttime;
 			objectduration = t3 - objectstarttime;
+		//	BPPrintMessage(0,odError,"kcurrentinstance = %d, startime = %ld, endtime = %ld\n",kcurrentinstance,objectstarttime,(*p_Instance)[kcurrentinstance].endtime);
 			if(objectduration < 0 || objectduration > 500000) { // Revised 2024-06-21
 				jj = (*p_Instance)[kcurrentinstance].object;
 			//	if(TraceMIDIinteraction) 
@@ -1430,9 +1442,11 @@ SENDNOTEOFF:
 				j,nseq,kcurrentinstance,pp_currentparams,scale,blockkey)) == ABORT) goto OVER;
 										}
 									if(showpianoroll) {
-										if(trace_csound_pianoroll) BPPrintMessage(0,odInfo,"* DrawPianoNote(1) start = %ld end = %ld leftoffset = %ld nseq = %d\n",(*p_last_timeon[localchan])[c1],(t0 + t1),leftoffset,nseq);
+										if(trace_csound_pianoroll)
+											BPPrintMessage(1,odInfo,"* DrawPianoNote(1) start = %ld end = %ld leftoffset = %ld nseq = %d\n",(*p_last_timeon[localchan])[c1],(t0 + t1),leftoffset,nseq);
 										result = OK;
-										result = DrawPianoNote("midi",c1,localchan,(*p_last_timeon[localchan])[c1],(t0 + t1),leftoffset,topoffset,hrect,minkey,maxkey,&graphrect);
+										if(!cswrite) // 2026-03-31
+											result = DrawPianoNote("midi",c1,localchan,(*p_last_timeon[localchan])[c1],(t0 + t1),leftoffset,topoffset,hrect,minkey,maxkey,&graphrect);
 										(*p_last_timeon[localchan])[c1] = 0L;
 										if(result != OK || overflow) goto OVER;
 										}
@@ -1482,10 +1496,9 @@ SENDNOTEOFF:
 											if((result=SendToDriver(kcurrentinstance,scale,blockkey,(t0 + t1),nseq,&rs,&e)) != OK) goto OVER;
 											}
 										if(showpianoroll) {
-											if(trace_csound_pianoroll) BPPrintMessage(0,odInfo,"* DrawPianoNote(2) start = %ld end = %ld leftoffset = %ld nseq = %d\n",(*p_last_timeon[localchan])[c1],(t0 + t1),leftoffset,nseq);
-											result = DrawPianoNote("midi",c1,localchan,(*p_last_timeon[localchan])[c1],(t0 + t1),
-												leftoffset,topoffset,hrect,
-												minkey,maxkey,&graphrect);
+										//	if(trace_csound_pianoroll)
+												BPPrintMessage(1,odInfo,"* DrawPianoNote(2) start = %ld end = %ld leftoffset = %ld nseq = %d\n",(*p_last_timeon[localchan])[c1],(t0 + t1),leftoffset,nseq);
+											result = DrawPianoNote("midi",c1,localchan,(*p_last_timeon[localchan])[c1],(t0 + t1),leftoffset,topoffset,hrect,minkey,maxkey,&graphrect);
 											if(result != OK || overflow) goto OVER;
 											}
 										}
@@ -1525,10 +1538,11 @@ SENDNOTEOFF:
 					j,nseq,kcurrentinstance,pp_currentparams,scale,blockkey)) == ABORT) goto OVER;
 										}
 									if(showpianoroll) { // Fixed by BB 4 Nov 2020
-										if(trace_csound_pianoroll) BPPrintMessage(0,odInfo,"* DrawPianoNote(3) start = %ld end = %ld leftoffset = %ld nseq = %d\n",(*p_last_timeon[localchan])[c1],(t0 + t1),leftoffset,nseq);
-										result = DrawPianoNote("midi",c1,localchan,(*p_last_timeon[localchan])[c1],
-										(t0 + t1),leftoffset,topoffset,hrect,
-											minkey,maxkey,&graphrect);
+										if(trace_csound_pianoroll)
+											BPPrintMessage(1,odInfo,"* DrawPianoNote(3) start = %ld end = %ld leftoffset = %ld nseq = %d\n",(*p_last_timeon[localchan])[c1],(t0 + t1),leftoffset,nseq);
+										result = OK;
+										if(!cswrite)  // 2026-03-31
+											result = DrawPianoNote("midi",c1,localchan,(*p_last_timeon[localchan])[c1],(t0 + t1),leftoffset,topoffset,hrect,minkey,maxkey,&graphrect);
 										if(result != OK || overflow) goto OVER;
 										}
 									(*((*pp_currentparams)[nseq]))->starttime[c1] = (t0 + t1) / 1000.;
@@ -1988,7 +2002,7 @@ int ClipVelocity(int v,int localvelocity,int control,int rndvel) {
 	if(rndvel > 0) {
 		if(rndvel > 127) r = ParamValue[rndvel-128];
 		else r = rndvel;
-		x = (2. * rand() * ((float)r)) / ((float)RAND_MAX);
+		x = (2. * bp3_rand() * ((float)r)) / ((float)BP3_RAND_MAX);
 		if(x > r) x = r - x;
 		UsedRandom = TRUE;
 		localvelocity += x;

@@ -14,15 +14,24 @@ Un nom dit un **niveau** de la chaîne, pas un **producteur**. Aucun champ de ve
 mot `wasm` n'apparaît dans aucun fichier. Mais **la forme d'un champ est une déclaration** :
 
 - les 30 `s1_native.json` ne déclarent **aucun** producteur, ni par un champ ni par une forme.
-  Ils portent en revanche **deux mises en page distinctes** — 24 rangent `mode` avant `midi`,
-  6 l'inverse, et ces six-là sont exactement le lot daté du 2026-04-01. Deux écritures, donc,
-  pour un jeu de références qu'on lit comme un seul.
+  Leur champ `source` nomme la GRAMMAIRE (`-gr.Ames`), pas le binaire. Ils portent en revanche
+  **deux mises en page distinctes** — 24 rangent `mode` avant `midi`, 6 l'inverse, et ces six-là
+  sont exactement le lot daté du 2026-04-01 : MyMelody, doeslittle, simpletemplates,
+  transposition1, tryMIDIfile, tryRotate. Deux écritures, donc, pour un jeu de références qu'on
+  lit comme un seul. *Les deux affirmations de ce paragraphe ont été remesurées le 2026-09-21 et
+  elles tiennent.*
+- ils portent **six dates**, donc six lots, et non un seul versement : 2026-04-01 (6), 04-05 (1),
+  04-26 (14), 06-09 (3), 06-13 (4), 06-14 (2).
 
 ## Qualification des 30 entrées — chacune reproduite au binaire nommé
 
 Un indéterminé se qualifie en le **reproduisant**, jamais en le rangeant par ressemblance. Les 27
-grammaires non protégées ont été rejouées au binaire nommé, deux passages chacune. Chaque entrée
-porte son verdict dans son propre en-tête, champ `qualification`.
+grammaires non protégées ont été rejouées au binaire nommé, deux passages chacune.
+
+⛔ **CE TABLEAU EST LA SEULE TRACE DU VERDICT, ET LES FICHIERS NE LE PORTENT PAS.** Cette section
+annonçait un champ `qualification` dans l'en-tête de chaque entrée : mesuré le 2026-09-21, il
+n'existe dans **aucun** des trente. Les six clés réelles sont `date`, `midi`, `mode`, `source`,
+`stage`, `tokens`. ⇒ Un oracle lu seul ne dit pas ce qu'il vaut ; son verdict se cherche ici.
 
 | verdict | n | grammaires |
 | --- | --- | --- |

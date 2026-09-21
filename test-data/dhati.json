@@ -101,7 +101,7 @@
       },
     "Rescale mode": {
       "key": "RescaleMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Minimum expansion": {
@@ -114,12 +114,12 @@
       },
     "Delay mode": {
       "key": "DelayMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Forward mode": {
       "key": "ForwardMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Max delay": {
@@ -131,11 +131,6 @@
       "key": "MaxForward",
       "value": 0,
       "unit": "ms"
-      },
-    "Break tempo mode": {
-      "key": "BreakTempoMode",
-      "value": 1,
-      "unit": "enum"
       },
     "Continuity at beginning mode": {
       "key": "ContBegMode",
@@ -149,7 +144,7 @@
       },
     "Continuity at end mode": {
       "key": "ContEndMode",
-      "value": 1,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Max gap at end (ms or percent)": {
@@ -159,7 +154,7 @@
       },
     "Cover beginning mode": {
       "key": "CoverBegMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max cover at beginning": {
@@ -169,7 +164,7 @@
       },
     "Cover end mode": {
       "key": "CoverEndMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max cover at end": {
@@ -179,7 +174,7 @@
       },
     "Truncate beginning mode": {
       "key": "TruncBegMode",
-      "value": 1,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Max truncate beginning": {
@@ -189,7 +184,7 @@
       },
     "Truncate end mode": {
       "key": "TruncEndMode",
-      "value": 1,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Max truncate end": {
@@ -199,7 +194,7 @@
       },
     "Pivot mode": {
       "key": "PivMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Pivot position": {
@@ -257,17 +252,17 @@
       },
     "Preroll mode": {
       "key": "PreRollMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Postroll mode": {
       "key": "PostRollMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Cyclic mode": {
       "key": "CyclicMode",
-      "value": -2,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Cyclic after": {
@@ -285,18 +280,18 @@
       "value": 0,
       "unit": "boolean"
       },
-    "Strike (again) mode": {
+    "Strike again NoteOn's": {
       "key": "StrikeAgain",
-      "value": -1,
+      "value": "DEFAULT",
       "unit": "enum"
       },
-    "Force MIDI to Csound instrument #": {
-      "key": "CsoundAssignedInstr",
-      "value": -1
-      },
-    "MIDI to Csound conversion mode": {
+    "Csound instrument #": {
       "key": "CsoundInstr",
-      "value": 0,
+      "value": 0
+      },
+    "Csound conversion mode": {
+      "key": "CsoundInstrumentMode",
+      "value": "FORCE TO INSTRUMENT",
       "unit": "enum"
       },
     "Tempo of MF2T code": {
@@ -561,7 +556,7 @@
       },
     "Rescale mode": {
       "key": "RescaleMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Minimum expansion": {
@@ -574,12 +569,12 @@
       },
     "Delay mode": {
       "key": "DelayMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Forward mode": {
       "key": "ForwardMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Max delay": {
@@ -591,11 +586,6 @@
       "key": "MaxForward",
       "value": 0,
       "unit": "ms"
-      },
-    "Break tempo mode": {
-      "key": "BreakTempoMode",
-      "value": 1,
-      "unit": "enum"
       },
     "Continuity at beginning mode": {
       "key": "ContBegMode",
@@ -609,7 +599,7 @@
       },
     "Continuity at end mode": {
       "key": "ContEndMode",
-      "value": 1,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Max gap at end (ms or percent)": {
@@ -619,7 +609,7 @@
       },
     "Cover beginning mode": {
       "key": "CoverBegMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max cover at beginning": {
@@ -629,7 +619,7 @@
       },
     "Cover end mode": {
       "key": "CoverEndMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max cover at end": {
@@ -639,7 +629,7 @@
       },
     "Truncate beginning mode": {
       "key": "TruncBegMode",
-      "value": 1,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Max truncate beginning": {
@@ -649,7 +639,7 @@
       },
     "Truncate end mode": {
       "key": "TruncEndMode",
-      "value": 1,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Max truncate end": {
@@ -659,7 +649,7 @@
       },
     "Pivot mode": {
       "key": "PivMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Pivot position": {
@@ -717,17 +707,17 @@
       },
     "Preroll mode": {
       "key": "PreRollMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Postroll mode": {
       "key": "PostRollMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Cyclic mode": {
       "key": "CyclicMode",
-      "value": -2,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Cyclic after": {
@@ -745,18 +735,18 @@
       "value": 0,
       "unit": "boolean"
       },
-    "Strike (again) mode": {
+    "Strike again NoteOn's": {
       "key": "StrikeAgain",
-      "value": -1,
+      "value": "DEFAULT",
       "unit": "enum"
       },
-    "Force MIDI to Csound instrument #": {
-      "key": "CsoundAssignedInstr",
-      "value": -1
-      },
-    "MIDI to Csound conversion mode": {
+    "Csound instrument #": {
       "key": "CsoundInstr",
-      "value": 0,
+      "value": 0
+      },
+    "Csound conversion mode": {
+      "key": "CsoundInstrumentMode",
+      "value": "FORCE TO INSTRUMENT",
       "unit": "enum"
       },
     "Tempo of MF2T code": {
@@ -901,7 +891,7 @@
       },
     "Rescale mode": {
       "key": "RescaleMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Minimum expansion": {
@@ -914,12 +904,12 @@
       },
     "Delay mode": {
       "key": "DelayMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Forward mode": {
       "key": "ForwardMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Max delay": {
@@ -931,11 +921,6 @@
       "key": "MaxForward",
       "value": 0,
       "unit": "ms"
-      },
-    "Break tempo mode": {
-      "key": "BreakTempoMode",
-      "value": 1,
-      "unit": "enum"
       },
     "Continuity at beginning mode": {
       "key": "ContBegMode",
@@ -949,7 +934,7 @@
       },
     "Continuity at end mode": {
       "key": "ContEndMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Max gap at end (ms or percent)": {
@@ -959,7 +944,7 @@
       },
     "Cover beginning mode": {
       "key": "CoverBegMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max cover at beginning": {
@@ -969,7 +954,7 @@
       },
     "Cover end mode": {
       "key": "CoverEndMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max cover at end": {
@@ -979,7 +964,7 @@
       },
     "Truncate beginning mode": {
       "key": "TruncBegMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max truncate beginning": {
@@ -989,7 +974,7 @@
       },
     "Truncate end mode": {
       "key": "TruncEndMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max truncate end": {
@@ -999,7 +984,7 @@
       },
     "Pivot mode": {
       "key": "PivMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Pivot position": {
@@ -1057,17 +1042,17 @@
       },
     "Preroll mode": {
       "key": "PreRollMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Postroll mode": {
       "key": "PostRollMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Cyclic mode": {
       "key": "CyclicMode",
-      "value": -2,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Cyclic after": {
@@ -1085,18 +1070,18 @@
       "value": 0,
       "unit": "boolean"
       },
-    "Strike (again) mode": {
+    "Strike again NoteOn's": {
       "key": "StrikeAgain",
-      "value": -1,
+      "value": "DEFAULT",
       "unit": "enum"
       },
-    "Force MIDI to Csound instrument #": {
-      "key": "CsoundAssignedInstr",
-      "value": -1
-      },
-    "MIDI to Csound conversion mode": {
+    "Csound instrument #": {
       "key": "CsoundInstr",
-      "value": 0,
+      "value": 0
+      },
+    "Csound conversion mode": {
+      "key": "CsoundInstrumentMode",
+      "value": "FORCE TO INSTRUMENT",
       "unit": "enum"
       },
     "Tempo of MF2T code": {
@@ -1241,7 +1226,7 @@
       },
     "Rescale mode": {
       "key": "RescaleMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Minimum expansion": {
@@ -1254,12 +1239,12 @@
       },
     "Delay mode": {
       "key": "DelayMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Forward mode": {
       "key": "ForwardMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Max delay": {
@@ -1271,11 +1256,6 @@
       "key": "MaxForward",
       "value": 0,
       "unit": "ms"
-      },
-    "Break tempo mode": {
-      "key": "BreakTempoMode",
-      "value": 1,
-      "unit": "enum"
       },
     "Continuity at beginning mode": {
       "key": "ContBegMode",
@@ -1289,7 +1269,7 @@
       },
     "Continuity at end mode": {
       "key": "ContEndMode",
-      "value": 1,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Max gap at end (ms or percent)": {
@@ -1299,7 +1279,7 @@
       },
     "Cover beginning mode": {
       "key": "CoverBegMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max cover at beginning": {
@@ -1309,7 +1289,7 @@
       },
     "Cover end mode": {
       "key": "CoverEndMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max cover at end": {
@@ -1319,7 +1299,7 @@
       },
     "Truncate beginning mode": {
       "key": "TruncBegMode",
-      "value": 1,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Max truncate beginning": {
@@ -1329,7 +1309,7 @@
       },
     "Truncate end mode": {
       "key": "TruncEndMode",
-      "value": 1,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Max truncate end": {
@@ -1339,7 +1319,7 @@
       },
     "Pivot mode": {
       "key": "PivMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Pivot position": {
@@ -1397,17 +1377,17 @@
       },
     "Preroll mode": {
       "key": "PreRollMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Postroll mode": {
       "key": "PostRollMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Cyclic mode": {
       "key": "CyclicMode",
-      "value": -2,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Cyclic after": {
@@ -1425,18 +1405,18 @@
       "value": 0,
       "unit": "boolean"
       },
-    "Strike (again) mode": {
+    "Strike again NoteOn's": {
       "key": "StrikeAgain",
-      "value": -1,
+      "value": "DEFAULT",
       "unit": "enum"
       },
-    "Force MIDI to Csound instrument #": {
-      "key": "CsoundAssignedInstr",
-      "value": -1
-      },
-    "MIDI to Csound conversion mode": {
+    "Csound instrument #": {
       "key": "CsoundInstr",
-      "value": 0,
+      "value": 0
+      },
+    "Csound conversion mode": {
+      "key": "CsoundInstrumentMode",
+      "value": "FORCE TO INSTRUMENT",
       "unit": "enum"
       },
     "Tempo of MF2T code": {
@@ -1617,7 +1597,7 @@
       },
     "Rescale mode": {
       "key": "RescaleMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Minimum expansion": {
@@ -1630,12 +1610,12 @@
       },
     "Delay mode": {
       "key": "DelayMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Forward mode": {
       "key": "ForwardMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Max delay": {
@@ -1647,11 +1627,6 @@
       "key": "MaxForward",
       "value": 0,
       "unit": "ms"
-      },
-    "Break tempo mode": {
-      "key": "BreakTempoMode",
-      "value": 1,
-      "unit": "enum"
       },
     "Continuity at beginning mode": {
       "key": "ContBegMode",
@@ -1665,7 +1640,7 @@
       },
     "Continuity at end mode": {
       "key": "ContEndMode",
-      "value": 1,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Max gap at end (ms or percent)": {
@@ -1675,7 +1650,7 @@
       },
     "Cover beginning mode": {
       "key": "CoverBegMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max cover at beginning": {
@@ -1685,7 +1660,7 @@
       },
     "Cover end mode": {
       "key": "CoverEndMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max cover at end": {
@@ -1695,7 +1670,7 @@
       },
     "Truncate beginning mode": {
       "key": "TruncBegMode",
-      "value": 1,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Max truncate beginning": {
@@ -1705,7 +1680,7 @@
       },
     "Truncate end mode": {
       "key": "TruncEndMode",
-      "value": 1,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Max truncate end": {
@@ -1715,7 +1690,7 @@
       },
     "Pivot mode": {
       "key": "PivMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Pivot position": {
@@ -1773,17 +1748,17 @@
       },
     "Preroll mode": {
       "key": "PreRollMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Postroll mode": {
       "key": "PostRollMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Cyclic mode": {
       "key": "CyclicMode",
-      "value": -2,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Cyclic after": {
@@ -1801,18 +1776,18 @@
       "value": 0,
       "unit": "boolean"
       },
-    "Strike (again) mode": {
+    "Strike again NoteOn's": {
       "key": "StrikeAgain",
-      "value": -1,
+      "value": "DEFAULT",
       "unit": "enum"
       },
-    "Force MIDI to Csound instrument #": {
-      "key": "CsoundAssignedInstr",
-      "value": 0
-      },
-    "MIDI to Csound conversion mode": {
+    "Csound instrument #": {
       "key": "CsoundInstr",
-      "value": -1,
+      "value": -1
+      },
+    "Csound conversion mode": {
+      "key": "CsoundInstrumentMode",
+      "value": "FORCE TO CURRENT INSTRUMENT",
       "unit": "enum"
       },
     "Tempo of MF2T code": {
@@ -1969,7 +1944,7 @@
       },
     "Rescale mode": {
       "key": "RescaleMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Minimum expansion": {
@@ -1982,12 +1957,12 @@
       },
     "Delay mode": {
       "key": "DelayMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Forward mode": {
       "key": "ForwardMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Max delay": {
@@ -1999,11 +1974,6 @@
       "key": "MaxForward",
       "value": 0,
       "unit": "ms"
-      },
-    "Break tempo mode": {
-      "key": "BreakTempoMode",
-      "value": 1,
-      "unit": "enum"
       },
     "Continuity at beginning mode": {
       "key": "ContBegMode",
@@ -2017,7 +1987,7 @@
       },
     "Continuity at end mode": {
       "key": "ContEndMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Max gap at end (ms or percent)": {
@@ -2027,7 +1997,7 @@
       },
     "Cover beginning mode": {
       "key": "CoverBegMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max cover at beginning": {
@@ -2037,7 +2007,7 @@
       },
     "Cover end mode": {
       "key": "CoverEndMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max cover at end": {
@@ -2047,7 +2017,7 @@
       },
     "Truncate beginning mode": {
       "key": "TruncBegMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max truncate beginning": {
@@ -2057,7 +2027,7 @@
       },
     "Truncate end mode": {
       "key": "TruncEndMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Max truncate end": {
@@ -2067,7 +2037,7 @@
       },
     "Pivot mode": {
       "key": "PivMode",
-      "value": -1,
+      "value": "FIXVALUE",
       "unit": "enum"
       },
     "Pivot position": {
@@ -2125,17 +2095,17 @@
       },
     "Preroll mode": {
       "key": "PreRollMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Postroll mode": {
       "key": "PostRollMode",
-      "value": 0,
+      "value": "PERCENT",
       "unit": "enum"
       },
     "Cyclic mode": {
       "key": "CyclicMode",
-      "value": -2,
+      "value": "IRRELEVANT",
       "unit": "enum"
       },
     "Cyclic after": {
@@ -2153,18 +2123,18 @@
       "value": 0,
       "unit": "boolean"
       },
-    "Strike (again) mode": {
+    "Strike again NoteOn's": {
       "key": "StrikeAgain",
-      "value": -1,
+      "value": "DEFAULT",
       "unit": "enum"
       },
-    "Force MIDI to Csound instrument #": {
-      "key": "CsoundAssignedInstr",
-      "value": -1
-      },
-    "MIDI to Csound conversion mode": {
+    "Csound instrument #": {
       "key": "CsoundInstr",
-      "value": 0,
+      "value": 0
+      },
+    "Csound conversion mode": {
+      "key": "CsoundInstrumentMode",
+      "value": "FORCE TO INSTRUMENT",
       "unit": "enum"
       },
     "Tempo of MF2T code": {

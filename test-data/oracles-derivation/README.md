@@ -1,7 +1,8 @@
 # Oracles natifs « dérivation » — single / produce-all
 
-Générés par `bp3` natif v3.4.4 pour permettre une comparaison **like-with-like au niveau
-dérivation** avec BPx, et non plus au niveau production répétée.
+Générés par `bp3` natif v3.5.4 pour permettre une comparaison **like-with-like au niveau
+dérivation** avec BPx, et non plus au niveau production répétée. Le champ `source` de chaque
+fichier nomme le binaire qui l'a produit.
 
 **Pourquoi** : les oracles `s3_native` existants sont capturés avec `-o` et un réglage
 « Max items produced » élevé — ils contiennent donc le **même item répété N fois**
@@ -45,12 +46,16 @@ pas les dépendances déclarées en tête de grammaire.
 
 ## Regénérer
 
-`scratchpad/genoracle.py` de la session, ou reproduire à la main :
+`scripts/regraver-les-references.py` — sans argument il mesure et n'écrit rien, avec `poser` il
+reporte le résultat ici. La campagne tourne sur une COPIE du dossier, jamais dedans. Le script
+regrave aussi les fichiers de synthèse `<nom>.json` de la racine, que le moteur écrit lui-même.
+
+Ce qu'il fait pour chaque oracle :
 
 ```
-bp3 produce     -e -gr <grammaire nettoyée> --seed 1 -se <réglages, MaxItemsProduce=1> \
+bp3 produce     -e -gr <grammaire> --seed 1 -se <réglages, MaxItemsProduce=1> \
                 -al <alphabet> [-so <objets>] -o <sortie> --tokensout <jetons>
-bp3 produce-all -e -gr <grammaire nettoyée> --seed 1 -se <réglages> \
+bp3 produce-all -e -gr <grammaire> --seed 1 -se <réglages> \
                 -al <alphabet> [-so <objets>] -o <sortie>
 ```
 
